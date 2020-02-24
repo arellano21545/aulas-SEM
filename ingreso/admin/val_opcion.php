@@ -26,12 +26,20 @@
   {
     header('location: reservaciones/eliminar.php');
   }
-  if($opcion == 'agrega_user')
+  if($opcion == 'ver_rese')
   {
-    header('location: usuarios/opciones.php');
+    header('location: reservaciones/ver_evento.php');
   }
-  if($opcion == 'elimina_user')
+  if($opcion == 'add_user')
   {
-    header('location: usuarios/opciones.php');
+    header('location: usuarios/op_agregar.php');
+  }
+  if($opcion == 'del_user')
+  {
+    header('location: usuarios/op_eliminar.php');
+  }
+  if($opcion == 'lista_users')
+  {
+    header('location: usuarios/lista_usuarios.php');
   }
 ?>

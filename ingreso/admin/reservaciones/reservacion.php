@@ -39,6 +39,7 @@ if($hora_i_ent>=$hora_f_ent)
     alert('Revisa la hora del evento');
 	history.back();
 	</script>";
+	die();
 }
 //comprobar fechas del evento//
 $f_ini=1;

@@ -2,10 +2,12 @@
 	//id, user, password, nombre, privilegio
 	$usuario = $_POST['usuario'];
 	$password = $_POST['password'];
-	$host_db="localhost";
-	$usuario_db="root";
-	$password_db="";
-	$nombre_db="aulas";
+	/////////////////--------------------Datos de la DB---------------------------///////////////////////////
+	$host_db="localhost";//datos del host utilizado
+	$usuario_db="root";//usuario de la db
+	$password_db="";//contraseña de la db
+	$nombre_db="aulas";//nombre de la db
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//conexion a la base de datos
 	$conexion = mysqli_connect($host_db, $usuario_db, $password_db, $nombre_db);
 	$consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' and password='$password' ";

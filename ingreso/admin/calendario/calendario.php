@@ -67,6 +67,17 @@ switch ($aula_pass)
 		$aula_cons="reservaciones_null";
 		break;
 }
+//para imprimir calendario
+//para imprimir
+
+$_SESSION['year_imp']=$year_most;
+$_SESSION['mes_imp']=$meses[$indice_mes-1];
+$_SESSION['aula_cons_imp']=$aula_cons;
+$_SESSION['year_pass_imp']=$year_pass;
+$_SESSION['mes_pass_imp']=$mes_pass;
+$_SESSION['dias_mes']=$dias_mes;
+$_SESSION['aula_pass']=$aula_pass;
+
 ?>
  
 <!DOCTYPE html>
@@ -136,12 +147,13 @@ switch ($aula_pass)
 				$id_event=$datos['id'];
 				$hora_ini_event=$datos['hora_ini'];
 				$hora_fin_event=$datos['hora_fin'];
+				$cadena_cortada=substr($nombre_event, 0, 7);
 				for ($celdas=0; $celdas < 29; $celdas++)
 				{	
 					if($celdas==0)
 						echo "<td>$renglones</td>";
 					if(($hora_ini_event<=$celdas+1) && ($hora_fin_event>=$celdas+2))
-					echo "<td class='hoy'>$nombre_event</td>";
+					echo "<td class='hoy'>$cadena_cortada</td>";
 					else
 						echo "<td>&nbsp;</td>";
 					
@@ -156,12 +168,13 @@ switch ($aula_pass)
 					$id_event=$datos['id'];
 					$hora_ini_event=$datos['hora_ini'];
 					$hora_fin_event=$datos['hora_fin'];
+					$cadena_cortada=substr($nombre_event, 0, 7);
 					while ($celdas_bloc<$hora_fin_event-1)
 					{
 						if($celdas_bloc==0)
 							echo "<td>$renglones</td>";
 						if($hora_ini_event<=$celdas_bloc+1)
-						echo "<td class='hoy'>$nombre_event</td>";
+						echo "<td class='hoy'>$cadena_cortada</td>";
 						else
 							echo "<td>&nbsp;</td>";	
 						$celdas_bloc++;
@@ -194,6 +207,13 @@ switch ($aula_pass)
 ?>
 </tr>
 </table>
+<div class="container" >
+    <form id="reg" action="imprimir.php" method="post" align="center" target="_blank">
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Imprimir</button>
+    </fieldset>
+    </form>     
+</div>
 <div class="container" >
     <form id="reg" action="op_calendario.php" method="post" align="center">
     <fieldset>
